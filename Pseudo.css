@@ -1,0 +1,23 @@
+.Second:active {
+    background-color: yellow;
+}
+
+.Third:hover {
+    background-color: red;
+}
+
+.Fourth:focus {
+    background-color: teal;
+}
+
+.Fifth:active {
+    background-color: yellow;
+}
+
+.Fifth:hover {
+    background-color: red;
+}
+
+.Fifth:focus {
+    background-color: teal;
+}
