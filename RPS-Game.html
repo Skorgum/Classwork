@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>RPS</title>
+</head>
+
+<body>
+    <h1>Type r, p, or s to begin!</h1>
+    <div id="game">
+        <script type="text/javascript">
+
+        var computerChoices = ["r", "p", "s"];
+        document.onkeyup = function(event) {
+            var userGuess = event.key
+            var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+            if (userGuess == "r" && computerGuess == "r") {
+                alert("You chose rock")
+                alert("Computer chose rock")
+                alert("You tied!")
+            }
+            else if (userGuess == "r" && computerGuess == "p") {
+                alert("You chose rock")
+                alert("Computer chose paper")
+                alert("You lose!")
+            }
+            else if (userGuess == "r" && computerGuess == "s") {
+                alert("You chose rock")
+                alert("Computer chose scissors")
+                alert("You win!")
+            }
+            else if (userGuess == "p" && computerGuess == "r") {
+                alert("You chose paper")
+                alert("Computer chose rock")
+                alert("You win!")
+            }
+            else if (userGuess == "p" && computerGuess == "p") {
+                alert("You chose paper")
+                alert("Computer chose paper")
+                alert("You tied!")
+            }
+            else if (userGuess == "p" && computerGuess == "s") {
+                alert("You chose paper")
+                alert("Computer chose scissors")
+                alert("You lose!")
+            }
+            else if (userGuess == "s" && computerGuess == "r") {
+                alert("You chose scissors")
+                alert("Computer chose rock")
+                alert("You lose!")
+            }
+            else if (userGuess == "s" && computerGuess == "p") {
+                alert("You chose scissors")
+                alert("Computer chose paper")
+                alert("You win!")
+            }
+            else if (userGuess == "s" && computerGuess == "s") {
+                alert("You chose scissors")
+                alert("Computer chose scissors")
+                alert("You tied!")
+            }
+            else {
+                alert("You failed to follow directions!  Please try again!")
+            }
+        }
+    
+        </script>
+    </div>
+</body>
+</html>
