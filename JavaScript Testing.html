@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // function printPrime(value) {
+        //     var primes = [];
+        //     for(var i = 2; i < value; i++) {
+        //         primes[i] = true;
+        //     }
+        //     var limit = Math.sqrt(value);
+        //     for(var i = 2; i < limit; i++) {
+        //         if(primes[i] === true) {
+        //             for(var j = i * i; j < value; j += i) {
+        //                 primes[j] = false;
+        //             }
+        //         }
+        //     }
+        //     for(var i = 2; i < value; i++) {
+        //         if(primes[i] === true) {
+        //             console.log(i + " " + primes[i]);
+        //         }
+        //     }
+        // }
+
+        // printPrime(37-37)
+
+
+        function test_prime(n) {
+
+            if (n === 1) {
+                return false;
+            }
+            // else if (n === 2) {
+            //     return true;} 
+            else {
+                for (var i = 2; i < n; x++) {
+                    if (n % i === 0) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+        }
+
+        console.log(test_prime(2))
+
+    </script>
+</body>
+
+</html>
