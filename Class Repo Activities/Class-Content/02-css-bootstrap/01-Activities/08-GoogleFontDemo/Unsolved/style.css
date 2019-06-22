@@ -1,0 +1,16 @@
+/**
+ * Google Fonts Demo
+ **/
+
+/* Add in the Google Fonts of your choice */
+* {
+    font-family: 'Permanent Marker', cursive;
+}
+
+p {
+    font-family: 'Satisfy', cursive;
+}
+
+.fa-water: {
+    color: #000;
+}
