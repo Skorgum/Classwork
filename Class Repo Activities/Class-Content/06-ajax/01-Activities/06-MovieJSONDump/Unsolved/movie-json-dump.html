@@ -44,7 +44,14 @@
         // YOUR CODE GOES IN THESE DASHES. DO NOT MANUALLY EDIT THE HTML ABOVE
 
         // =================================================================
-
+        $.ajax({
+          url: queryURL,
+          method: "GET"
+        }).then(function(response) {
+          var movieReturn = JSON.stringify(response);
+          $("#movie-view").append(movieReturn);
+          console.log(response);
+        })
         // CODE GOES HERE
 
         // =================================================================

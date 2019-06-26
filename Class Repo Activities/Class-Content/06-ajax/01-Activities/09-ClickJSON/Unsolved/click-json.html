@@ -29,18 +29,30 @@
       <!-- Button triggers new movie to be added -->
       <input id="add-movie" type="submit" value="Add a Movie, Yo!">
     </form>
+    <div id="movie-info"></div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
       // Initial array of movies
       var movies = ["The Matrix", "The Notebook", "Mr. Nobody", "The Lion King"];
+      
 
       // Function for dumping the JSON content for each button into the div
       function displayMovieInfo() {
 
         // YOUR CODE GOES HERE!!! HINT: You will need to create a new div to hold the JSON.
-
-      }
+      
+          var movie = $(this).attr("data-name");
+          var queryURL = "https://www.omdbapi.com/?t=" + movie + "&apikey=trilogy";
+          $.ajax({
+            url: queryURL,
+            method: "GET"
+          }).then(function(response) {
+          var movieReturn = JSON.stringify(response);
+          $("#movie-info").text(movieReturn);
+          console.log(response);
+          });
+          }
 
       // Function for displaying movie data
       function renderButtons() {
