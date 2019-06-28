@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New York Times Search</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+        <div class="jumbotron">
+            <h1>New York Times Search</h1>
+        </div>
+    </div>
+<div class="card">
+    <div class="col-sm-8">
+            <h2>Search Term</h2>
+            <input type="text" name="Search Value"><br>
+            <span id=Search-Term></span>
+        </form> 
+        <h3>Number of Records to retrieve</h3>
+            <select>
+                <option value="1">1</option>
+                 <option value="5">5</option>
+                <option value="10">10</option>
+            </select> 
+        <h4>Start Year</h4>
+            <input type="text" name="StartYear"><br>
+        <h5>End Year</h5>
+            <input type="text" name="End Year"><br>
+        <p>
+        <button id="search-button">Search</button>
+        <button id="clear-button">Clear Results</button>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="assets/javascript/app.js"></script>
+
+</body>
+</html>
