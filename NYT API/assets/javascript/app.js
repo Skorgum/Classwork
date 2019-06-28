@@ -8,7 +8,8 @@ $("#search-button").on("click", function() {
         url: queryUrl,
         method: "GET"
     }).then(function(response) {
-        console.log(response)
+        console.log(response);
+        
     })
 
 })
