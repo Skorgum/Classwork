@@ -1,17 +1,17 @@
-// Initialize Firebase (YOUR OWN APP)
+/* global firebase */
+
+// Initialize Firebase
 // Make sure that your configuration matches your firebase script version
 // (Ex. 3.0 != 3.7.1)
-var firebaseConfig = {
-  apiKey: "AIzaSyCAStLtDrEDfpGE2l7kUTAiHsu1md0r9_k",
-  authDomain: "i-cannot-think-of-a-name.firebaseapp.com",
-  databaseURL: "https://i-cannot-think-of-a-name.firebaseio.com",
-  projectId: "i-cannot-think-of-a-name",
-  storageBucket: "",
-  messagingSenderId: "684268648817",
-  appId: "1:684268648817:web:59e10f8909f163ab"
+var config = {
+  apiKey: "AIzaSyB4Ws5gPo9gNW9x90uXnX6XZ4uqE5QjkUY",
+  authDomain: "countdownclicker.firebaseapp.com",
+  databaseURL: "https://countdownclicker.firebaseio.com",
+  storageBucket: "countdownclicker.appspot.com",
+  messagingSenderId: "435604262542"
 };
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+
+firebase.initializeApp(config);
 
 // Create a variable to reference the database
 var database = firebase.database();
@@ -26,28 +26,29 @@ var clickCounter = initialValue;
 
 // At the initial load and on subsequent data value changes, get a snapshot of the current data. (I.E FIREBASE HERE)
 // This callback keeps the page updated when a value changes in firebase.
-// HINT: Assuming 'database' is our database variable, use...
 database.ref().on("value", function(snapshot) {
   // We are now inside our .on function...
+
   // Console.log the "snapshot" value (a point-in-time representation of the database)
   console.log(snapshot.val());
-  clickCounter = snapshot.val().clickCount
+  // This "snapshot" allows the page to get the most current values in firebase.
+
+  // Change the value of our clickCounter to match the value in the database
+  clickCounter = snapshot.val().clickCount;
+
+  // Console Log the value of the clickCounter
+  console.log(clickCounter);
+
+  // Change the HTML using jQuery to reflect the updated clickCounter value
   $("#click-value").text(clickCounter);
+  // Alternate solution to the above line
+  // $("#click-value").html(clickCounter);
 
-
-// This "snapshot" allows the page to get the most current values in firebase.
-
-
-// Change the value of our clickCounter to match the value in the database
-// ___________ = snapshot.val().______________________
-
-// Console Log the value of the clickCounter
-
-// Change the HTML using jQuery to reflect the updated clickCounter value
-
-// Then include Firebase error logging
-// HINT: }, function(errorObject)
+// If any errors are experienced, log them to console.
+}, function(errorObject) {
+  console.log("The read failed: " + errorObject.code);
 });
+
 // --------------------------------------------------------------
 
 // Whenever a user clicks the click button
@@ -58,15 +59,14 @@ $("#click-button").on("click", function() {
 
   // Alert User and reset the counter
   if (clickCounter === 0) {
-
     alert("Phew! You made it! That sure was a lot of clicking.");
-
     clickCounter = initialValue;
-
   }
 
   // Save new value to Firebase
-
+  database.ref().set({
+    clickCount: clickCounter
+  });
 
   // Log the value of clickCounter
   console.log(clickCounter);
@@ -80,13 +80,14 @@ $("#restart-button").on("click", function() {
   clickCounter = initialValue;
 
   // Save new value to Firebase
-
+  database.ref().set({
+    clickCount: clickCounter
+  });
 
   // Log the value of clickCounter
   console.log(clickCounter);
 
   // Change the HTML Values
   $("#click-value").text(clickCounter);
-
 
 });

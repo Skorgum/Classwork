@@ -23,25 +23,27 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
   <!-- ================================================================================== -->
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
 
-  <!-- Firebase Core JavaScript Link -->
-  <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#config-web-app -->
 
-   <!-- Specific Firebase products we want -->
-   <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCAStLtDrEDfpGE2l7kUTAiHsu1md0r9_k",
+    authDomain: "i-cannot-think-of-a-name.firebaseapp.com",
+    databaseURL: "https://i-cannot-think-of-a-name.firebaseio.com",
+    projectId: "i-cannot-think-of-a-name",
+    storageBucket: "",
+    messagingSenderId: "684268648817",
+    appId: "1:684268648817:web:59e10f8909f163ab"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
 
-  <script>
-    // Initialize Firebase
-    // This is the code we copied and pasted from our app page
-    var config = {
-      apiKey: "AIzaSyAJS4YQWU5DmESeYueG1qH1NGkjv3DncEY",
-      authDomain: "fir-click-counter-7cdb9.firebaseapp.com",
-      databaseURL: "https://fir-click-counter-7cdb9.firebaseio.com",
-      projectId: "fir-click-counter-7cdb9",
-      storageBucket: "fir-click-counter-7cdb9.appspot.com"
-    };
 
-    firebase.initializeApp(config);
 
     // Variables
     // ================================================================================
