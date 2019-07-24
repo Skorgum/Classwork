@@ -80,7 +80,7 @@ $("#submit-bid").on("click", function(event) {
     // Save the new price in Firebase
     database.ref().set ({
       highBidder: bidderName,
-
+      
     })
 
     // Log the new High Price
