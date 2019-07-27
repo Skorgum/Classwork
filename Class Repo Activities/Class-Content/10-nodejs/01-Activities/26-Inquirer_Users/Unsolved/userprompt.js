@@ -14,3 +14,36 @@
 // Remember to be creative!
 
 // ========================================================================
+var inquirer = require("inquirer")
+
+inquirer
+    .prompt([
+        {
+            type: "input",
+            message: "Enter your Username",
+            name: "username"
+        },
+        {
+            type: "password",
+            message: "Enter your password",
+            name: "password"
+        },
+        {
+            type: "list",
+            message: "Boxers or Briefs?",
+            choices: ["Boxers", "Briefs", "Commando"], 
+            name: "choice"
+        },
+        {
+            type: "checkbox",
+            message: "Select all items that you want",
+            choices: ["Pants", "Shirt", "Shoes", "Socks"],
+            name: "options"
+        },
+        {
+            type: "confirm",
+            message: "Are you sure?",
+            name: "confirm",
+            default: true
+        }
+    ])

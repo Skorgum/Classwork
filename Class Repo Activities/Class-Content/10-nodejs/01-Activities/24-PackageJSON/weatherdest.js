@@ -12,14 +12,16 @@ var weather = require("weather-js");
 // Replace with your mapquest consumer API key
 var options = {
   provider: "mapquest",
-  apiKey: "YOUR-MAPQUEST-API-CONSUMER-KEY"
+  apiKey: "8ciHmeB8by5gKAgYB7bgKw1kau3cKz2D"
 };
 
 var geocoder = NodeGeocoder(options);
+console.log(options)
 
 // Get all elements in process.argv, starting from index 2 to the end
 // Join them into a string to get the space delimited address
 var address = process.argv.slice(2).join(" ");
+console.log(address)
 
 // Then use the Google Geocoder to geocode the address
 geocoder.geocode(address, function(err, data) {
