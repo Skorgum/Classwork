@@ -2,6 +2,14 @@ var fs = require("fs");
 
 // Write a function that logs a message, then executes
 // a function argument.
+function logString(str, callBack) {
+    console.log(str)
+    callBack()
+}
+
+logString("Hello World", function () {
+    console.log('Function done')
+})
 
 // Write a function that runs a function argument if
 // its other argument is truthy.
