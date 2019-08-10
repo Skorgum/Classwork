@@ -10,12 +10,8 @@ var connection = mysql.createConnection({
   user: "root",
 
   // Your password
-<<<<<<< HEAD
-  password: "",
-=======
   password: "admin",
->>>>>>> d2b584f984302a6910596f34f88a239c136accf0
-  database: "ice_creamDB"
+  database: "playlist_db"
 });
 
 connection.connect(function(err) {
@@ -25,7 +21,7 @@ connection.connect(function(err) {
 });
 
 function afterConnection() {
-  connection.query("SELECT * FROM products", function(err, res) {
+  connection.query("SELECT * FROM songs", function(err, res) {
     if (err) throw err;
     console.log(res);
     connection.end();
