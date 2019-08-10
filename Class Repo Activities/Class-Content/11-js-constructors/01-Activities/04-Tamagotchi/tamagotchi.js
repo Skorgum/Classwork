@@ -43,8 +43,8 @@ dog.bark = function () {
     console.log("Woof!  Woof!")
 };
 dog.goOutside = function () {
-    if (this.outside) {
-        console.log("Yay!  I love outside!");
+    if (this.outside == false) {
+        console.log("Yay!  I love going outside!");
         this.outside = true;
         dog.bark();
     } else {
