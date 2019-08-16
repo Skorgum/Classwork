@@ -54,6 +54,10 @@ app.get("/all", function(req, res) {
   res.sendFile(path.join(__dirname, "all.html"));
 });
 
+app.get("/delete", function(req, res) {
+  res.sendFile(path.join(__dirname, "delete.html"));
+});
+
 // Displays all characters
 app.get("/api/characters", function(req, res) {
   return res.json(characters);

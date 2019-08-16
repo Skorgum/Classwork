@@ -25,7 +25,12 @@ var darthmaul = {
 // Enter any values you like for the parameters following the same format as the Yoda and Darth Maul character
 //
 
-// YOUR CODE GOES HERE
+var obiwankenobi = {
+  name: "Obi Wan Kenobi",
+  role: "Jedi Master",
+  age: 57,
+  forcePoints: 1500
+}
 
 //
 
@@ -47,7 +52,9 @@ app.get("/darthmaul", function(req, res) {
 // Follow the same format as the Yoda and Darth Maul routes
 //
 
-// YOUR CODE GOES HERE
+app.get("/obiwankenobi", function(req, res) {
+  res.json(obiwankenobi);
+});
 //
 //
 
