@@ -1,0 +1,44 @@
+<h1>Movie List</h1>
+
+<ul>
+    {{#each movies}}
+     <li>
+        <p>
+            {{this.id}}.  {{this.movie}}
+
+            <button data-planid="{{this.id}}" class="delmovie">Delete Movie!</button>
+        </p>
+    </li>
+    {{/each}}
+</ul>
+
+<h2>Add a Movie</h2>
+<form id="createmovie" class="button-size">
+    <textarea type="text" name="movie"></textarea>
+    <button type="submit">Save Movie!</button>
+</form>
+
+<h2>Update a Movie</h2>
+<form id="updatemovie" class="button-size">
+    <select name="id">
+        {{#each movies}}
+            <option value="{{this.id}}">{{this.movie}}</option>
+        {{/each}}
+    </select>
+    <textarea type="text" name="movie" placeholder="movie"></textarea>
+    <button type="submit">Update Movie!</button>
+</form>
+
+<script type="text/javascript">
+    $(".delmovie").on("click", function(event) {
+        var id = $(this).data("movieid")
+        $.ajax("/api/movies/" + id, {
+            type: "DELETE"
+        }).then(
+            function() {
+                console.log("deleted id ", id);
+                location.reload();
+            }
+        )
+    })
+</script>
