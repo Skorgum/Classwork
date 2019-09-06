@@ -16,12 +16,21 @@ module.exports = function(app) {
   app.get("/api/todos", function(req, res) {
     // Write code here to retrieve all of the todos from the database and res.json them
     // back to the user
+      db.Todo.findAll().then(function(result) {
+        return res.json(result);
+      });
   });
 
   // POST route for saving a new todo. We can create todo with the data in req.body
   app.post("/api/todos", function(req, res) {
     // Write code here to create a new todo and save it to the database
     // and then res.json back the new todo to the user
+    db.Todo.create({
+      text: req.body.text,
+      complete: req.body.complete
+    }).then((result) => {
+      res.json(result);
+    })
 
   });
 

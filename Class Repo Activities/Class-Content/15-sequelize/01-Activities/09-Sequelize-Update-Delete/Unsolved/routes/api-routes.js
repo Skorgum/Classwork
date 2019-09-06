@@ -40,12 +40,30 @@ module.exports = function(app) {
   app.delete("/api/todos/:id", function(req, res) {
     // Use the sequelize destroy method to delete a record from our table with the
     // id in req.params.id. res.json the result back to the user
-
+    db.Todo.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then((result) => {
+      res.json(result)
+    });
   });
 
   // PUT route for updating todos. We can get the updated todo data from req.body
   app.put("/api/todos", function(req, res) {
     // Use the sequelize update method to update a todo to be equal to the value of req.body
     // req.body will contain the id of the todo we need to update
+    db.Todo.update({
+      text: req.body.text,
+      complete: req.body.complete
+    },
+      {
+        where: {
+          id: req.body.id
+        }
+      }
+    ).then((result) => {
+      res.json(result)
+    })
   });
 };
