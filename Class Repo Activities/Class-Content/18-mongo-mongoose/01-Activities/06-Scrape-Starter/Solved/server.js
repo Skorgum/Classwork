@@ -8,7 +8,7 @@ console.log("\n***********************************\n" +
             "\n***********************************\n");
 
 // Making a request via axios for reddit's "webdev" board. We are sure to use old.reddit due to changes in HTML structure for the new reddit. The page's Response is passed as our promise argument.
-axios.get("https://apnews.com").then(function(response) {
+axios.get("https://apnews.com/apf-technology/").then(function(response) {
 
   // Load the Response into cheerio and save it to a variable
   // '$' becomes a shorthand for cheerio's selector commands, much like jQuery's '$'
@@ -20,19 +20,22 @@ axios.get("https://apnews.com").then(function(response) {
 
   // With cheerio, find each p-tag with the "title" class
   // (i: iterator. element: the current element)
-  $("div.CardHeadline").each(function(i, element) {
+  $("div.FeedCard").each(function(i, element) {
 
     // Save the text of the element in a "title" variable
-    var title = $(element).text();
+    var headline = $(element).find("a").find("h1").text();
 
     // In the currently selected element, look at its child elements (i.e., its a-tags),
     // then save the values for any "href" attributes that the child elements may have
-    var link = $(element).children().attr("href");
+    var link = "https://apnews.com/apf-technology/" + $(element).find("a").attr("href");
+
+    let image = $(element).find("a").find("div.LazyImage").attr("src")
 
     // Save these results in an object that we'll push into the results array we defined earlier
     results.push({
-      title: title,
-      link: link
+      headline: headline,
+      link: link,
+      image: image
     });
   });
 
